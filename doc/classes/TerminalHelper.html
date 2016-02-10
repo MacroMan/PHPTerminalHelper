@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+		<meta charset="utf-8"/>
+		<title>TerminalHelper</title>
+		<meta name="author" content=""/>
+		<meta name="description" content=""/>
+
+		<link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+		<link href="../css/font-awesome.min.css" rel="stylesheet">
+		<link href="../css/prism.css" rel="stylesheet" media="all"/>
+		<link href="../css/template.css" rel="stylesheet" media="all"/>
+
+		<!--[if lt IE 9]>
+		<script src="../js/html5.js"></script>
+		<![endif]-->
+		<script src="../js/jquery-1.11.0.min.js"></script>
+		<script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/jquery.smooth-scroll.js"></script>
+		<script src="../js/prism.min.js"></script>
+		<!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+		<script type="text/javascript">
+			function loadExternalCodeSnippets() {
+				Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+					var src = pre.getAttribute('data-src');
+					var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+					var language = 'php';
+
+					var code = document.createElement('code');
+					code.className = 'language-' + language;
+
+					pre.textContent = '';
+
+					code.textContent = 'Loading…';
+
+					pre.appendChild(code);
+
+					var xhr = new XMLHttpRequest();
+
+					xhr.open('GET', src, true);
+
+					xhr.onreadystatechange = function () {
+						if (xhr.readyState == 4) {
+
+							if (xhr.status < 400 && xhr.responseText) {
+								code.textContent = xhr.responseText;
+
+								Prism.highlightElement(code);
+							}
+							else if (xhr.status >= 400) {
+								code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+							}
+							else {
+								code.textContent = '✖ Error: File does not exist or is empty';
+							}
+						}
+					};
+
+					xhr.send(null);
+				});
+			}
+
+			$(document).ready(function () {
+				loadExternalCodeSnippets();
+			});
+			$('#source-view').on('shown', function () {
+				loadExternalCodeSnippets();
+			})
+		</script>
+
+		<link rel="shortcut icon" href="../images/favicon.ico"/>
+		<link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+		<link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+		<link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+	</head>
+	<body>
+
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<i class="icon-ellipsis-vertical"></i>
+					</a>
+					<a class="brand" href="../index.html">TerminalHelper</a>
+
+					<div class="nav-collapse">
+						<ul class="nav pull-right">
+							<li class="dropdown" id="charts-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									Charts <b class="caret"></b>
+								</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="../graphs/class.html">
+											<i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown" id="reports-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									Reports <b class="caret"></b>
+								</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="../reports/errors.html">
+											<i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">83</span>
+										</a>
+									</li>
+									<li>
+										<a href="../reports/markers.html">
+											<i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+										</a>
+									</li>
+									<li>
+										<a href="../reports/deprecated.html">
+											<i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--<div class="go_to_top">-->
+			<!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+			<!--</div>-->
+		</div>
+
+		<div id="___" class="container-fluid">
+			<section class="row-fluid">
+				<div class="span2 sidebar">
+					<div class="accordion" style="margin-bottom: 0">
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1230912454"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+							</div>
+							<div id="namespace-1230912454" class="accordion-body collapse in">
+								<div class="accordion-inner">
+
+
+									<ul>
+										<li class="class"><a href="../classes/TerminalHelper.html">TerminalHelper</a></li>
+										<li class="class"><a href="../classes/Test.html">Test</a></li>
+										<li class="class"><a href="../classes/TestColor.html">TestColor</a></li>
+										<li class="class"><a href="../classes/TestCursor.html">TestCursor</a></li>
+										<li class="class"><a href="../classes/TestDisplay.html">TestDisplay</a></li>
+										<li class="class"><a href="../classes/TestMode.html">TestMode</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+			<section class="row-fluid">
+				<div class="span10 offset2">
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<nav>
+								<a href="../namespaces/default.html">\</a> <i class="icon-level-up"></i>
+							</nav>
+							<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+							<h1><small>\</small>TerminalHelper</h1>
+							<p><em></em></p>
+
+
+
+							<section id="summary">
+								<h2>Summary</h2>
+								<section class="row-fluid heading">
+									<section class="span4">
+										<a href="#methods">Methods</a>
+									</section>
+									<section class="span4">
+										<a href="#properties">Properties</a>
+									</section>
+									<section class="span4">
+										<a href="#constants">Constants</a>
+									</section>
+								</section>
+								<section class="row-fluid public">
+									<section class="span4">
+										<a href="../classes/TerminalHelper.html#method___construct" class="">__construct()</a><br />
+										<a href="../classes/TerminalHelper.html#method_setEscapeSequenceOutput" class="">setEscapeSequenceOutput()</a><br />
+										<a href="../classes/TerminalHelper.html#method_setEscapeSequencePrefix" class="">setEscapeSequencePrefix()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorMoveUp" class="">cursorMoveUp()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorMoveDown" class="">cursorMoveDown()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorMoveLeft" class="">cursorMoveLeft()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorMoveRight" class="">cursorMoveRight()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorMoveUpAndHome" class="">cursorMoveUpAndHome()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorMoveDownAndHome" class="">cursorMoveDownAndHome()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorColumnSet" class="">cursorColumnSet()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorPositionSet" class="">cursorPositionSet()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorPositionSave" class="">cursorPositionSave()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorPositionRestore" class="">cursorPositionRestore()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorHide" class="">cursorHide()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorShow" class="">cursorShow()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorBlinkOn" class="">cursorBlinkOn()</a><br />
+										<a href="../classes/TerminalHelper.html#method_cursorBlinkOff" class="">cursorBlinkOff()</a><br />
+										<a href="../classes/TerminalHelper.html#method_displayGetColumns" class="">displayGetColumns()</a><br />
+										<a href="../classes/TerminalHelper.html#method_displayGetLines" class="">displayGetLines()</a><br />
+										<a href="../classes/TerminalHelper.html#method_displayEraseLine" class="">displayEraseLine()</a><br />
+										<a href="../classes/TerminalHelper.html#method_displayEraseLineAfterCursor" class="">displayEraseLineAfterCursor()</a><br />
+										<a href="../classes/TerminalHelper.html#method_displayEraseLineBeforeCursor" class="">displayEraseLineBeforeCursor()</a><br />
+										<a href="../classes/TerminalHelper.html#method_displayEraseScreen" class="">displayEraseScreen()</a><br />
+										<a href="../classes/TerminalHelper.html#method_displayScrollUp" class="">displayScrollUp()</a><br />
+										<a href="../classes/TerminalHelper.html#method_displayScrollDown" class="">displayScrollDown()</a><br />
+										<a href="../classes/TerminalHelper.html#method_displayModeSet" class="">displayModeSet()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textReset" class="">textReset()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textBold" class="">textBold()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textBoldOff" class="">textBoldOff()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textUnderline" class="">textUnderline()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textUnderlineOff" class="">textUnderlineOff()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textFontSet" class="">textFontSet()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textFontSetDefault" class="">textFontSetDefault()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textColorSet" class="">textColorSet()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textColorSetDefault" class="">textColorSetDefault()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textBackgroundColorSet" class="">textBackgroundColorSet()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textBackgroundColorSetDefault" class="">textBackgroundColorSetDefault()</a><br />
+										<a href="../classes/TerminalHelper.html#method_textColorSwapWithBackgroundColor" class="">textColorSwapWithBackgroundColor()</a><br />
+									</section>
+									<section class="span4">
+										<em>No public properties found</em>
+									</section>
+									<section class="span4">
+										<a href="../classes/TerminalHelper.html#constant_COLOR_BLACK" class="">COLOR_BLACK</a><br />
+										<a href="../classes/TerminalHelper.html#constant_COLOR_RED" class="">COLOR_RED</a><br />
+										<a href="../classes/TerminalHelper.html#constant_COLOR_GREEN" class="">COLOR_GREEN</a><br />
+										<a href="../classes/TerminalHelper.html#constant_COLOR_YELLOW" class="">COLOR_YELLOW</a><br />
+										<a href="../classes/TerminalHelper.html#constant_COLOR_BLUE" class="">COLOR_BLUE</a><br />
+										<a href="../classes/TerminalHelper.html#constant_COLOR_MAGENTA" class="">COLOR_MAGENTA</a><br />
+										<a href="../classes/TerminalHelper.html#constant_COLOR_CYAN" class="">COLOR_CYAN</a><br />
+										<a href="../classes/TerminalHelper.html#constant_COLOR_WHITE" class="">COLOR_WHITE</a><br />
+										<a href="../classes/TerminalHelper.html#constant_MODE_SMALL_BW" class="">MODE_SMALL_BW</a><br />
+										<a href="../classes/TerminalHelper.html#constant_MODE_SMALL_COLOR" class="">MODE_SMALL_COLOR</a><br />
+										<a href="../classes/TerminalHelper.html#constant_MODE_STANDARD_BW" class="">MODE_STANDARD_BW</a><br />
+										<a href="../classes/TerminalHelper.html#constant_MODE_STANDARD_COLOR" class="">MODE_STANDARD_COLOR</a><br />
+										<a href="../classes/TerminalHelper.html#constant_MODE_LARGE_BW" class="">MODE_LARGE_BW</a><br />
+										<a href="../classes/TerminalHelper.html#constant_MODE_LARGE_COLOR" class="">MODE_LARGE_COLOR</a><br />
+										<a href="../classes/TerminalHelper.html#constant_MODE_EXTRA_LARGE_BW" class="">MODE_EXTRA_LARGE_BW</a><br />
+									</section>
+								</section>
+								<section class="row-fluid protected">
+									<section class="span4">
+										<em>No protected methods found</em>
+									</section>
+									<section class="span4">
+										<em>No protected properties found</em>
+									</section>
+									<section class="span4">
+										<em>N/A</em>
+									</section>
+								</section>
+								<section class="row-fluid private">
+									<section class="span4">
+										<a href="../classes/TerminalHelper.html#method_output" class="">output()</a><br />
+										<a href="../classes/TerminalHelper.html#method_displayErase" class="">displayErase()</a><br />
+										<a href="../classes/TerminalHelper.html#method_displaySgr" class="">displaySgr()</a><br />
+									</section>
+									<section class="span4">
+										<a href="../classes/TerminalHelper.html#property_escapeSequenceOutput" class="">$escapeSequenceOutput</a><br />
+										<a href="../classes/TerminalHelper.html#property_escapeSequencePrefix" class="">$escapeSequencePrefix</a><br />
+									</section>
+									<section class="span4">
+										<em>N/A</em>
+									</section>
+								</section>
+							</section>
+						</div>
+						<aside class="span4 detailsbar">
+
+
+							<dl>
+								<dt>File</dt>
+								<dd><a href="../files/TerminalHelper.html"><div class="path-wrapper">TerminalHelper.php</div></a></dd>
+								<dt>Package</dt>
+								<dd><div class="namespace-wrapper">Default</div></dd>
+								<dt>Class hierarchy</dt>
+								<dd class="hierarchy">
+									<div class="namespace-wrapper">\TerminalHelper</div>
+								</dd>
+
+
+
+
+
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+							</table>
+						</aside>
+					</div>
+
+					<a id="constants" name="constants"></a>
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<h2>Constants</h2>
+						</div>
+						<aside class="span4 detailsbar"></aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_COLOR_BLACK" name="constant_COLOR_BLACK" class="anchor"></a>
+							<article id="constant_COLOR_BLACK" class="constant">
+								<h3 class="">COLOR_BLACK</h3>
+								<pre class="signature">COLOR_BLACK</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_COLOR_RED" name="constant_COLOR_RED" class="anchor"></a>
+							<article id="constant_COLOR_RED" class="constant">
+								<h3 class="">COLOR_RED</h3>
+								<pre class="signature">COLOR_RED</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_COLOR_GREEN" name="constant_COLOR_GREEN" class="anchor"></a>
+							<article id="constant_COLOR_GREEN" class="constant">
+								<h3 class="">COLOR_GREEN</h3>
+								<pre class="signature">COLOR_GREEN</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_COLOR_YELLOW" name="constant_COLOR_YELLOW" class="anchor"></a>
+							<article id="constant_COLOR_YELLOW" class="constant">
+								<h3 class="">COLOR_YELLOW</h3>
+								<pre class="signature">COLOR_YELLOW</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_COLOR_BLUE" name="constant_COLOR_BLUE" class="anchor"></a>
+							<article id="constant_COLOR_BLUE" class="constant">
+								<h3 class="">COLOR_BLUE</h3>
+								<pre class="signature">COLOR_BLUE</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_COLOR_MAGENTA" name="constant_COLOR_MAGENTA" class="anchor"></a>
+							<article id="constant_COLOR_MAGENTA" class="constant">
+								<h3 class="">COLOR_MAGENTA</h3>
+								<pre class="signature">COLOR_MAGENTA</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_COLOR_CYAN" name="constant_COLOR_CYAN" class="anchor"></a>
+							<article id="constant_COLOR_CYAN" class="constant">
+								<h3 class="">COLOR_CYAN</h3>
+								<pre class="signature">COLOR_CYAN</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_COLOR_WHITE" name="constant_COLOR_WHITE" class="anchor"></a>
+							<article id="constant_COLOR_WHITE" class="constant">
+								<h3 class="">COLOR_WHITE</h3>
+								<pre class="signature">COLOR_WHITE</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_MODE_SMALL_BW" name="constant_MODE_SMALL_BW" class="anchor"></a>
+							<article id="constant_MODE_SMALL_BW" class="constant">
+								<h3 class="">MODE_SMALL_BW</h3>
+								<pre class="signature">MODE_SMALL_BW</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_MODE_SMALL_COLOR" name="constant_MODE_SMALL_COLOR" class="anchor"></a>
+							<article id="constant_MODE_SMALL_COLOR" class="constant">
+								<h3 class="">MODE_SMALL_COLOR</h3>
+								<pre class="signature">MODE_SMALL_COLOR</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_MODE_STANDARD_BW" name="constant_MODE_STANDARD_BW" class="anchor"></a>
+							<article id="constant_MODE_STANDARD_BW" class="constant">
+								<h3 class="">MODE_STANDARD_BW</h3>
+								<pre class="signature">MODE_STANDARD_BW</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_MODE_STANDARD_COLOR" name="constant_MODE_STANDARD_COLOR" class="anchor"></a>
+							<article id="constant_MODE_STANDARD_COLOR" class="constant">
+								<h3 class="">MODE_STANDARD_COLOR</h3>
+								<pre class="signature">MODE_STANDARD_COLOR</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_MODE_LARGE_BW" name="constant_MODE_LARGE_BW" class="anchor"></a>
+							<article id="constant_MODE_LARGE_BW" class="constant">
+								<h3 class="">MODE_LARGE_BW</h3>
+								<pre class="signature">MODE_LARGE_BW</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_MODE_LARGE_COLOR" name="constant_MODE_LARGE_COLOR" class="anchor"></a>
+							<article id="constant_MODE_LARGE_COLOR" class="constant">
+								<h3 class="">MODE_LARGE_COLOR</h3>
+								<pre class="signature">MODE_LARGE_COLOR</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="constant_MODE_EXTRA_LARGE_BW" name="constant_MODE_EXTRA_LARGE_BW" class="anchor"></a>
+							<article id="constant_MODE_EXTRA_LARGE_BW" class="constant">
+								<h3 class="">MODE_EXTRA_LARGE_BW</h3>
+								<pre class="signature">MODE_EXTRA_LARGE_BW</pre>
+								<p><em></em></p>
+
+							</article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+
+					<a id="properties" name="properties"></a>
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<h2>Properties</h2>
+						</div>
+						<aside class="span4 detailsbar"></aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="property_escapeSequenceOutput" name="property_escapeSequenceOutput" class="anchor"></a>
+							<article class="property">
+								<h3 class="private ">$escapeSequenceOutput</h3>
+								<pre class="signature">$escapeSequenceOutput : boolean|\const|\instanceOfFopen</pre>
+								<p><em></em></p>
+
+
+                                <h4>Type</h4>
+								boolean|\const|\instanceOfFopen
+								&mdash; If not false, then used as the first argument in fwrite to send escape sequences to the terminal                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="property_escapeSequencePrefix" name="property_escapeSequencePrefix" class="anchor"></a>
+							<article class="property">
+								<h3 class="private ">$escapeSequencePrefix</h3>
+								<pre class="signature">$escapeSequencePrefix : boolean|\const|\instanceOfFopen</pre>
+								<p><em></em></p>
+
+
+                                <h4>Type</h4>
+								boolean|\const|\instanceOfFopen
+								&mdash; If not false, then used as the first argument in fwrite to send escape sequences to the terminal                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+
+					<a id="methods" name="methods"></a>
+					<div class="row-fluid">
+						<div class="span8 content class"><h2>Methods</h2></div>
+						<aside class="span4 detailsbar"></aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method___construct" name="method___construct" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">__construct()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">__construct(boolean|\const|\instanceOfFopen  <span class="argument">$escapeSequenceOutput = STDERR</span>) </pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>boolean|\const|\instanceOfFopen</td>
+										<td>$escapeSequenceOutput </td>
+										<td><p>$escapeSequenceOutput If not false, then used as the first argument in fwrite to send escape sequences to the terminal</p></td>
+									</tr>
+								</table>
+
+
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_setEscapeSequenceOutput" name="method_setEscapeSequenceOutput" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">setEscapeSequenceOutput()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">setEscapeSequenceOutput(boolean|\const|\instanceOfFopen  <span class="argument">$output = STDERR</span>) </pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>boolean|\const|\instanceOfFopen</td>
+										<td>$output </td>
+										<td><p>$escapeSequenceOutput If not false, then used as the first argument in fwrite to send escape sequences to the terminal</p></td>
+									</tr>
+								</table>
+
+
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_setEscapeSequencePrefix" name="method_setEscapeSequencePrefix" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">setEscapeSequencePrefix()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">setEscapeSequencePrefix(string  <span class="argument">$prefix = &quot;\033[&quot;</span>) </pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>string</td>
+										<td>$prefix </td>
+										<td><p>The string to send to the terminal to initiate an escape sequence</p></td>
+									</tr>
+								</table>
+
+
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorMoveUp" name="method_cursorMoveUp" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorMoveUp()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorMoveUp(\interger  <span class="argument">$by = 1</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>\interger</td>
+										<td>$by </td>
+										<td><p>Number of lines to move by</p></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorMoveDown" name="method_cursorMoveDown" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorMoveDown()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorMoveDown(\interger  <span class="argument">$by = 1</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>\interger</td>
+										<td>$by </td>
+										<td><p>Number of lines to move by</p></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorMoveLeft" name="method_cursorMoveLeft" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorMoveLeft()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorMoveLeft(\interger  <span class="argument">$by = 1</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>\interger</td>
+										<td>$by </td>
+										<td><p>Number of columns to move by</p></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorMoveRight" name="method_cursorMoveRight" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorMoveRight()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorMoveRight(\interger  <span class="argument">$by = 1</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>\interger</td>
+										<td>$by </td>
+										<td><p>Number of columns to move by</p></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorMoveUpAndHome" name="method_cursorMoveUpAndHome" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorMoveUpAndHome()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorMoveUpAndHome(\interger  <span class="argument">$by = 1</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>\interger</td>
+										<td>$by </td>
+										<td><p>Number of lines to move by</p></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorMoveDownAndHome" name="method_cursorMoveDownAndHome" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorMoveDownAndHome()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorMoveDownAndHome(\interger  <span class="argument">$by = 1</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>\interger</td>
+										<td>$by </td>
+										<td><p>Number of lines to move by</p></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorColumnSet" name="method_cursorColumnSet" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorColumnSet()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorColumnSet(\interger  <span class="argument">$number = 1</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>\interger</td>
+										<td>$number </td>
+										<td><p>The column number to move to</p></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorPositionSet" name="method_cursorPositionSet" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorPositionSet()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorPositionSet(integer  <span class="argument">$columnNumber = 1</span>, integer  <span class="argument">$lineNumber = 1</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>integer</td>
+										<td>$columnNumber </td>
+										<td><p>The column number to move to</p></td>
+									</tr>
+									<tr>
+										<td>integer</td>
+										<td>$lineNumber </td>
+										<td><p>The line/row number to move to</p></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorPositionSave" name="method_cursorPositionSave" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorPositionSave()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorPositionSave() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorPositionRestore" name="method_cursorPositionRestore" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorPositionRestore()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorPositionRestore() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorHide" name="method_cursorHide" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorHide()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorHide() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorShow" name="method_cursorShow" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorShow()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorShow() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorBlinkOn" name="method_cursorBlinkOn" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorBlinkOn()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorBlinkOn() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_cursorBlinkOff" name="method_cursorBlinkOff" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">cursorBlinkOff()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">cursorBlinkOff() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_displayGetColumns" name="method_displayGetColumns" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">displayGetColumns()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">displayGetColumns() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The number of columns currently vsible in the terminal window</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_displayGetLines" name="method_displayGetLines" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">displayGetLines()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">displayGetLines() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The number of lines/rows currently vsible in the terminal window</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_displayEraseLine" name="method_displayEraseLine" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">displayEraseLine()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">displayEraseLine() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_displayEraseLineAfterCursor" name="method_displayEraseLineAfterCursor" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">displayEraseLineAfterCursor()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">displayEraseLineAfterCursor() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_displayEraseLineBeforeCursor" name="method_displayEraseLineBeforeCursor" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">displayEraseLineBeforeCursor()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">displayEraseLineBeforeCursor() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_displayEraseScreen" name="method_displayEraseScreen" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">displayEraseScreen()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">displayEraseScreen() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_displayScrollUp" name="method_displayScrollUp" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">displayScrollUp()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">displayScrollUp(  <span class="argument">$by = 1</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td></td>
+										<td>$by </td>
+										<td></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_displayScrollDown" name="method_displayScrollDown" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">displayScrollDown()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">displayScrollDown(  <span class="argument">$by = 1</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td></td>
+										<td>$by </td>
+										<td></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_displayModeSet" name="method_displayModeSet" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">displayModeSet()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">displayModeSet(  <span class="argument">$modeNumber</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td></td>
+										<td>$modeNumber </td>
+										<td></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textReset" name="method_textReset" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textReset()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textReset() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textBold" name="method_textBold" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textBold()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textBold() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textBoldOff" name="method_textBoldOff" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textBoldOff()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textBoldOff() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textUnderline" name="method_textUnderline" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textUnderline()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textUnderline() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textUnderlineOff" name="method_textUnderlineOff" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textUnderlineOff()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textUnderlineOff() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textFontSet" name="method_textFontSet" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textFontSet()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textFontSet(  <span class="argument">$fontNumber</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td></td>
+										<td>$fontNumber </td>
+										<td></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textFontSetDefault" name="method_textFontSetDefault" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textFontSetDefault()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textFontSetDefault() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textColorSet" name="method_textColorSet" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textColorSet()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textColorSet(  <span class="argument">$colourNumber</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td></td>
+										<td>$colourNumber </td>
+										<td></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textColorSetDefault" name="method_textColorSetDefault" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textColorSetDefault()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textColorSetDefault() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textBackgroundColorSet" name="method_textBackgroundColorSet" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textBackgroundColorSet()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textBackgroundColorSet(  <span class="argument">$colourNumber</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td></td>
+										<td>$colourNumber </td>
+										<td></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textBackgroundColorSetDefault" name="method_textBackgroundColorSetDefault" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textBackgroundColorSetDefault()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textBackgroundColorSetDefault() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_textColorSwapWithBackgroundColor" name="method_textColorSwapWithBackgroundColor" class="anchor"></a>
+							<article class="method">
+								<h3 class="public ">textColorSwapWithBackgroundColor()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">textColorSwapWithBackgroundColor() : string</pre>
+								<p><em></em></p>
+
+
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_output" name="method_output" class="anchor"></a>
+							<article class="method">
+								<h3 class="private ">output()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">output(string  <span class="argument">$string</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td>string</td>
+										<td>$string </td>
+										<td><p>Body of the escape sequence to send to the terminal</p></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>Body of the escape sequence to send to the terminal</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_displayErase" name="method_displayErase" class="anchor"></a>
+							<article class="method">
+								<h3 class="private ">displayErase()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">displayErase(  <span class="argument">$code</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td></td>
+										<td>$code </td>
+										<td></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+					<div class="row-fluid">
+						<div class="span8 content class">
+							<a id="method_displaySgr" name="method_displaySgr" class="anchor"></a>
+							<article class="method">
+								<h3 class="private ">displaySgr()</h3>
+								<a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+								<pre class="signature" style="margin-right: 54px;">displaySgr(  <span class="argument">$code</span>) : string</pre>
+								<p><em></em></p>
+
+
+								<h4>Parameters</h4>
+								<table class="table table-condensed table-hover">
+									<tr>
+										<td></td>
+										<td>$code </td>
+										<td></td>
+									</tr>
+								</table>
+
+
+								<h4>Returns</h4>
+								string
+								&mdash; <p>The escape sequence to send to the terminal if not already sent by $output()</p>
+
+                            </article>
+						</div>
+						<aside class="span4 detailsbar">
+							<h1><i class="icon-arrow-down"></i></h1>
+							<dl>
+							</dl>
+							<h2>Tags</h2>
+							<table class="table table-condensed">
+								<tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+						</aside>
+					</div>
+
+				</div>
+			</section>
+
+			<div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="source-view-label">TerminalHelper.php</h3>
+				</div>
+				<div class="modal-body">
+					<pre data-src="../files/TerminalHelper.php.txt" class="language-php line-numbers"></pre>
+				</div>
+			</div>
+
+			<footer class="row-fluid">
+				<section class="span10 offset2">
+					<section class="row-fluid">
+						<section class="span10 offset1">
+							<section class="row-fluid footer-sections">
+								<section class="span4">
+									<h1><i class="icon-code"></i></h1>
+									<div>
+										<ul>
+										</ul>
+									</div>
+								</section>
+								<section class="span4">
+									<h1><i class="icon-bar-chart"></i></h1>
+									<div>
+										<ul>
+											<li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+										</ul>
+									</div>
+								</section>
+								<section class="span4">
+									<h1><i class="icon-pushpin"></i></h1>
+									<div>
+										<ul>
+											<li><a href="../reports/errors.html">Errors</a></li>
+											<li><a href="../reports/markers.html">Markers</a></li>
+										</ul>
+									</div>
+								</section>
+							</section>
+						</section>
+					</section>
+					<section class="row-fluid">
+						<section class="span10 offset1">
+							<hr />
+							Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+							on February 10th, 2016 at 16:52.
+						</section>
+					</section>
+				</section>
+			</footer>
+		</div>
+
+	</body>
+</html>
