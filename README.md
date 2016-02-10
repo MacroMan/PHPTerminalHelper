@@ -7,7 +7,7 @@ This should run fine on most *nix and OSx environments and also on Windows as lo
 
 @licence GNU GENERAL PUBLIC LICENSE v2 - See LICENSE
 
-@usage - Include the class in your script. Create a new instance to start the progress bar and call update(); to update it.
+@usage - Include the class in your script. Create a new instance and call the methods to send the commands to the terminal window.
 
 @example
 ```php
