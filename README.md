@@ -1,3 +1,6 @@
+# Deprecated
+No longer maintained and not planning to update
+
 # TerminalHelper
 A helper utility for terminal written in PHP that gives very easy access to native escape sequences to allow changing of color and also control of the cursor and display modes
 
